@@ -10,13 +10,13 @@ namespace Semester1_exam_q2
     {
         static void Main(string[] args)
         {
-            string Name;
+            string Name; 
             int Age;
             Console.Write("Please enter name : ");
             Name = Console.ReadLine();
             Console.Write("Please enter age: ");
-            Age = Console.ReadLine();
-            string Price = int FindTicketPrice(Age);
+            Age = Console.Read();
+            int Price = int.Parse(FindTicketPrice(Age)); 
             Console.Write(Name + " the cost of your ticket is €" + Price);
             Console.Write("Do you wish to buy another (y/n) :");
             Console.ReadLine();
@@ -43,4 +43,5 @@ namespace Semester1_exam_q2
         }   
     }        
 }
+
 
