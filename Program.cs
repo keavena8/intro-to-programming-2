@@ -4,13 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp2
+namespace lab_1_q1
 {
     class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World");
+        { 
+            for (int i = 40; i <=60; i++)
+            {
+                Console.WriteLine(i);
+            }
             Console.ReadLine();
         }
     }
