@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_1_q1_part_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i, even = 0, odd = 0;
+            for (i = 0; i <= 5; i ++)
+            {
+                if (i % 2 == 0)
+                {
+                    even = even;
+                    even++;
+                }else
+                {
+                    odd = odd;
+                    odd++;
+                }
+            }
+            Console.WriteLine("Number of odd terms are: " + odd);
+            Console.ReadLine();
+        }  
+    }
+}
