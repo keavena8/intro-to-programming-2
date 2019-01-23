@@ -1,0 +1,26 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab1_q1_part_5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double Average;
+            int total = 0;
+            for (int i = 0; i <= 5; i++)
+            {
+                total = total + i;
+            }
+            Average = total / 5;
+            Console.WriteLine("This is the Average: " + Average);
+            Console.WriteLine("This is the smallest number: " + i;
+            Console.WriteLine("This is the largest number: " + ;
+            Console.ReadLine();
+        }
+    }
+}
