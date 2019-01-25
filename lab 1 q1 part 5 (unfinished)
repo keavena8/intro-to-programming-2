@@ -18,8 +18,6 @@ namespace lab1_q1_part_5
             }
             Average = total / 5;
             Console.WriteLine("This is the Average: " + Average);
-            Console.WriteLine("This is the smallest number: " + i;
-            Console.WriteLine("This is the largest number: " + ;
             Console.ReadLine();
         }
     }
