@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace semester2_q2_part_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int counter = 0;
+            do
+            {
+                for (int i = 5; i > counter; i--)
+
+                    Console.Write("*");
+                Console.WriteLine("");
+                counter++;
+
+            }
+            while (counter <= 5);
+            Console.ReadLine();
+
+        }
+    }
+}
