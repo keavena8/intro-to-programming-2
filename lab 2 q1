@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_2_q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int DayNumber;
+            Console.Write("Please pick a number: ");
+            DayNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("The day is "+ GetDay(DayNumber));
+            Console.ReadLine();
+        }
+        static string GetDay(int DayNumber)
+        {
+            string DayName;
+            switch (DayNumber)
+            {
+                case 1:
+                    DayName = "Monday";
+                    break;
+                case 2:
+                    DayName = "Tuesday";
+                    break;
+                case 3:
+                    DayName = "Wednesday";
+                    break;
+                case 4:
+                    DayName = "Thursday";
+                    break;
+                case 5:
+                    DayName = "Friday";
+                    break;
+                case 6:
+                    DayName = "Saturday";
+                    break;
+                case 7:
+                    DayName = "Sunday";
+                    break;
+                default:
+                    DayName = "Invalid Day Number";
+                    break;
+            }
+            return DayName;
+        }
+    }
+
+
+}
