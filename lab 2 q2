@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_2_q2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string ProductCode;
+            int Quantity;
+            double Total;
+            Console.Write("Please enter product code: ");
+            ProductCode = Console.ReadLine().ToUpper();
+            Console.Write("Please enter quantity: ");
+            Quantity = Convert.ToInt32(Console.ReadLine());
+            double Cost;
+            switch (ProductCode)
+            {
+                case "ASD":
+                    Cost = 67.95;
+                    break;
+                case "THF":
+                    Cost = 68.90;
+                    break;
+                case "TYG":
+                    Cost = 34.95;
+                    break;
+                case "GHT":
+                    Cost = 88.90;
+                    break;
+                case "YUR":
+                    Cost = 23.80;
+                    break;
+                case "UIT":
+                    Cost = 9.90;
+                    break;
+                case "HIT": case "UIP": case  "RRT": case "JJk": case "IOP":
+                    Cost = 10.00;
+                    break;
+                default:
+                    Cost = 0;
+                    break;
+            }
+                
+                if (Cost >= 1 && Cost < 500)
+                {
+                Console.WriteLine("Total: " + Cost * Quantity);
+                }
+                else if (Cost >= 500)
+                {
+                Console.WriteLine("Total: " + (Cost - ((Cost - 500) * .10)));
+                }
+                else
+                {
+                Console.WriteLine("Invalid code");
+                }
+                Console.ReadLine();
+
+        }   
+    }
+}
