@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_1_q3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string Delivery, doAgain;
+            int Weight;
+            double fee;
+            do
+            {
+                Console.Write("Enter Weight of book (grams): ");
+                Weight = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Enter Delivery (x/r/sx/ssx): ".ToLower());
+                Delivery = Console.ReadLine();
+
+                double WeightOnePrice = 0.025;
+                double WeightTwoPrice = 0.03;
+                double WeightThreePrice = 0.05;
+                if (Weight <= 2000)
+                {
+                    fee = 2.50 +(Weight * WeightOnePrice);
+                }
+                else if (Weight >= 2001 && Weight <= 5000)
+                {
+                    fee = 2.50 + (2000 * WeightOnePrice) + ((Weight - 2000) * WeightTwoPrice);
+                }
+                else
+                {
+                    fee = 2.50 + (2000 * WeightOnePrice) + (3000 * WeightTwoPrice) + ((Weight - 5000) * WeightThreePrice);
+                }
+
+
+                
+                if (Delivery == "x")
+                {
+                    fee += 1.50;
+                }
+                else if (Delivery == "sx")
+                {
+                    fee += 2.50;
+                }
+                else if (Delivery == "ssx")
+                {
+                    fee += 3.50;
+                }
+                    
+                Console.WriteLine("You have to pay " + fee + " for " + Weight + " grams");
+                Console.Write("Calculate another (y/n): ".ToLower());
+                doAgain = Console.ReadLine().ToLower();
+            }
+            while (doAgain == "y");
+        }
+    }
+}
