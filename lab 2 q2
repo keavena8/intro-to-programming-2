@@ -45,20 +45,21 @@ namespace lab_2_q2
                     Cost = 0;
                     break;
             }
-                
-                if (Cost >= 1 && Cost < 500)
-                {
-                Console.WriteLine("Total: " + Cost * Quantity);
-                }
-                else if (Cost >= 500)
-                {
-                Console.WriteLine("Total: " + (Cost - ((Cost - 500) * .10)));
-                }
-                else
-                {
+            Total = Cost * Quantity;
+            if (Total >= 1 && Total < 500)
+            {
+                Console.WriteLine("Total: " + Total);
+            }
+            else if (Total >= 500)
+            {
+                Console.WriteLine("Total: " + (Total - (Total * 0.10)));
+
+            }
+            else
+            {
                 Console.WriteLine("Invalid code");
-                }
-                Console.ReadLine();
+            }
+            Console.ReadLine();
 
         }   
     }
