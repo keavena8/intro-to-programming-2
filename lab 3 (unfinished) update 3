@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace lab_4
 {
     class Program
@@ -31,8 +32,15 @@ namespace lab_4
             Console.WriteLine("ProdcutCode :" + ProductCode + "\nCost: " + Cost);
             Console.ReadLine();
             //part iii
+            int x;
+            x = 1;
+            int y = AlltheNine(x);
+            Console.WriteLine(y);
+            Console.ReadLine();
 
             //part iv
+            int[] a;
+            a = new int[3];
 
             //part v
             double Weight, Height;
@@ -135,11 +143,21 @@ namespace lab_4
             return Cost;
         }
 
-        //part iii
 
+        static int AlltheNine(int x)
+        {
+            //part iii
+            int z = 9;
+            return z;
 
-        //part iv
+        }
 
+        static int PassCounter(int[] a)
+        {
+            //part iv
+            int[] b = { 22, 55, 44, 88, 11 };
+
+        }
         static double GetBMI(double Weight, double Height)
         {
             //part v
@@ -222,5 +240,7 @@ namespace lab_4
 
         }
         //part xii
-    }   
+    }
 }
+
+
