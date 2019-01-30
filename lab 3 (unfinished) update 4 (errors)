@@ -40,7 +40,10 @@ namespace lab_4
 
             //part iv
             int[] a;
-            a = new int[3];
+            a = new int[1];
+            int greaterthanforty = PassCounter(a);
+            Console.WriteLine("Numbers greater than 40 :", greaterthanforty);
+            Console.ReadLine();
 
             //part v
             double Weight, Height;
@@ -81,7 +84,13 @@ namespace lab_4
             Console.ReadLine();
 
             //part ix
-
+            int[] x;
+            x =  new int [1];
+            int j = x.Length - 1;
+            if (j < 1) return true;
+            int xi = x[0], i = 1;
+            while (i <= j && xi <= (xi = x[i])) i++;
+            return i > j
             //part x
             int Children;
             Console.Write("Please enter the number of child/children: ");
@@ -156,6 +165,15 @@ namespace lab_4
         {
             //part iv
             int[] b = { 22, 55, 44, 88, 11 };
+            int greaterthan;
+            greaterthan = 0;
+            for (int i =0; i <= b.Length; i++)
+            {
+                if (b[i] >= 40)
+                {
+                    greaterthan += b[i];
+                }
+            }return greaterthan;
 
         }
         static double GetBMI(double Weight, double Height)
@@ -204,7 +222,10 @@ namespace lab_4
             }
         }
         //part ix
+        static bool Sorted(int[] x)
+        {
 
+        }
         static double TotalChildren(int Children)
         {
             //part x
@@ -242,5 +263,3 @@ namespace lab_4
         //part xii
     }
 }
-
-
