@@ -12,7 +12,7 @@ namespace lab5_q1
         {
             string EmployeeName;
             double HoursWorked, HoursPayed;
-            string [] IDNumber = new string [6];
+            char [] IDNumber = new char[6];
             bool isValid = false;
             do
             {
@@ -21,13 +21,38 @@ namespace lab5_q1
                 Console.Write("Please enter ID number: ");
                 IDNumber = Console.ReadLine();
                 Console.Write("Please enter Hours Worked: ");
-                HoursWorked = int.TryParse(Console.ReadLine());
+                HoursWorked = int.Parse(Console.ReadLine());
                 Console.Write("Please enter Hourly pay rate: ");
-                HoursPayed = int.TryParse(Console.ReadLine());
-                if (IsPresent(EmployeeName, "EmployeeName") == true && isCorrect(IDNumber, "ID number") == true && isValue(HoursWorked, "Hours Worked", 10, 50)
+                HoursPayed = int.Parse(Console.ReadLine());
+                if (IsPresent(EmployeeName, "EmployeeName") == true)
                     isValid = true;
                 else
                     isValid = false;
+                for (int i =0; i < IDNumber.Length; i ++)
+                {
+
+                    if (isCorrect(IDNumber, IDNumber) == true)
+                        isValid = true;
+                    else
+                        isValid = false;
+                }
+                if (HoursValue("", HoursWorked, 10, 50))
+                {
+                    isValid = true;
+                }
+                else
+                { 
+                    isValid = false;
+                }
+                if (HoursPay("",HoursPayed, 10, 65)
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    isValid = false;
+                }
+
             }
             while (isValid == false);
         }
@@ -41,7 +66,7 @@ namespace lab5_q1
                 return false;
             }
         }
-        static bool isCorrect(string textin, string [] IDNumber)
+        static bool isCorrect(string textin, string[] IDNumber)
         {
             if (textin != "" && IDNumber[0] == "E")
                 return true;
@@ -50,11 +75,11 @@ namespace lab5_q1
                 Console.WriteLine("You must enter a valid ID number {0}", IDNumber);
                 return false;
             }
-            
+
         }
-        static bool isValue(string textin, double HoursWorked, int min, int max)
+        static bool HoursValue(string textin, double HoursWorked, int min, int max)
         {
-            if (textin != "" &&   && HoursWorked >= min && HoursWorked <= max)
+            if (textin != "" && HoursWorked >= min && HoursWorked <= max)
                 return true;
             else
             {
@@ -62,6 +87,46 @@ namespace lab5_q1
                 return false;
             }
         }
+        static bool HoursPay(string textin, double HoursPayed, int min, int max)
+        {
+            if (textin != "" && HoursPayed >= min && HoursPayed <= max)
+                return true;
+            else
+            {
+                Console.WriteLine("You must enter valid pay {0}", HoursPayed);
+                return false;
+            }
+        }static double FindIncome(char[] IDNumber, double HoursWorked, double HoursPayed)
+        {
+            double TaxTotal;
+            double Total;
+            double FinalTotal;
+            TaxTotal = 0;
+            Total = 0;
+
+            for (int i = 0; i < IDNumber.Length;i ++)
+            {
+                Total = HoursWorked * HoursPayed * 52;
+                if (Total <= 3000)
+                {
+                    return TaxTotal;
+                }
+                else if (Total >= 3000.01 && Total <= 34000)
+                {
+                    return TaxTotal = Total * 20 / 100;
+                }
+                else
+                {
+                    return TaxTotal = Total * 40 / 100;
+                }
+
+            }FinalTotal = Total - TaxTotal;
+        }
+        static PrintReport()
+        {
+
+        }
+
 
 
     }
