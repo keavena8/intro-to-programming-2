@@ -12,16 +12,57 @@ namespace lab5_q1
         {
             string EmployeeName;
             double HoursWorked, HoursPayed;
-            int IDNumber;
-            Console.Write("Please enter name: ");
-            EmployeeName = Console.ReadLine();
-            Console.Write("Please enter ID number: ");
-            IDNumber = int.Parse(Console.ReadLine());
-            Console.Write("Please enter Hours Worked: ");
-            HoursWorked = int.Parse(Console.ReadLine());
-            Console.Write("Please enter Hourly pay rate: ");
-            HoursPayed = int.Parse(Console.ReadLine());
+            string [] IDNumber = new string [6];
+            bool isValid = false;
+            do
+            {
+                Console.Write("Please enter name: ");
+                EmployeeName = Console.ReadLine();
+                Console.Write("Please enter ID number: ");
+                IDNumber = Console.ReadLine();
+                Console.Write("Please enter Hours Worked: ");
+                HoursWorked = int.TryParse(Console.ReadLine());
+                Console.Write("Please enter Hourly pay rate: ");
+                HoursPayed = int.TryParse(Console.ReadLine());
+                if (IsPresent(EmployeeName, "EmployeeName") == true && isCorrect(IDNumber, "ID number") == true && isValue(HoursWorked, "Hours Worked", 10, 50)
+                    isValid = true;
+                else
+                    isValid = false;
+            }
+            while (isValid == false);
         }
+        static bool IsPresent(string textin, string EmployeeName)
+        {
+            if (textin != "")
+                return true;
+            else
+            {
+                Console.WriteLine("You must enter a valid name {0}", EmployeeName);
+                return false;
+            }
+        }
+        static bool isCorrect(string textin, string [] IDNumber)
+        {
+            if (textin != "" && IDNumber[0] == "E")
+                return true;
+            else
+            {
+                Console.WriteLine("You must enter a valid ID number {0}", IDNumber);
+                return false;
+            }
+            
+        }
+        static bool isValue(string textin, double HoursWorked, int min, int max)
+        {
+            if (textin != "" &&   && HoursWorked >= min && HoursWorked <= max)
+                return true;
+            else
+            {
+                Console.WriteLine("You must enter valid hours {0}", HoursWorked);
+                return false;
+            }
+        }
+
 
     }
 }
