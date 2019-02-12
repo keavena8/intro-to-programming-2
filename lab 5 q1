@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab5_q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string EmployeeName;
+            double HoursWorked, HoursPayed;
+            int IDNumber;
+            Console.Write("Please enter name: ");
+            EmployeeName = Console.ReadLine();
+            Console.Write("Please enter ID number: ");
+            IDNumber = int.Parse(Console.ReadLine());
+            Console.Write("Please enter Hours Worked: ");
+            HoursWorked = int.Parse(Console.ReadLine());
+            Console.Write("Please enter Hourly pay rate: ");
+            HoursPayed = int.Parse(Console.ReadLine());
+        }
+
+    }
+}
