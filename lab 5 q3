@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_5_q3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] testscore = { 20, 40, 30, -1 };
+            int total = 0;
+            int FindAverage;
+                try
+                {
+                    for (int i = 0; i < testscore.Length; i++)
+                    {
+                        total = total + testscore[i];
+                    }
+
+                    FindAverage = total / testscore.Length;
+                    Console.WriteLine("The average result is {0}", FindAverage);
+                    Console.ReadLine();
+                }
+                catch (IndexOutOfRangeException e)
+                {
+                    Console.WriteLine("Invalid Code");
+                    Console.WriteLine(e.Message);
+                }
+                catch (ArithmeticException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            
+            
+            
+        }
+        
+    }
+}
