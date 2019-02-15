@@ -18,10 +18,12 @@ namespace lab_6_q1
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = r.Next(min, max);
+                Console.WriteLine(array[i]);
                 if (array[i] == 7)
                 {
                     index = i;
-                    Console.WriteLine(index);
+                    Console.WriteLine("The position of the first 7 is :" + index);
+                    break;
                                                
                 }
                 else
