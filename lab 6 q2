@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_6_q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int min = 0;
+            int max = 5;
+            int[] array = new int[10000];
+            double index0, index1, index2, index3, index4;
+            index0 = 0.00;
+            index1 = 0.00;
+            index2 = 0.00;
+            index3 = 0.00;
+            index4 = 0.00;
+            Random r = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = r.Next(min, max);
+                if (array[i] == 0)
+                {
+                    index0 += array[i];
+                    index0++;
+                }
+                else if (array[i] == 1)
+                {
+                    index1 += array[i];
+                    index1++;
+                }
+                else if (array[i] == 2)
+                {
+                    index2 += array[i];
+                    index2++;
+                }
+                else if (array[i] == 3)
+                {
+                    index3 += array[i];
+                    index3++;
+                }
+                else
+                {
+                    index4 += array[i];
+                    index4++;
+                }
+            }
+            Console.WriteLine("Total % of 0 is " + (index0 / array.Length * 100));
+            Console.WriteLine("Total % of 1 is " + ((index1 / array.Length * 100) - (index0 / array.Length * 100)));
+            Console.WriteLine("Total % of 2 is " + ((index2 / array.Length * 100) - (index1 / array.Length * 100)));
+            Console.WriteLine("Total % of 3 is " + ((index3 / array.Length * 100) - (index2 / array.Length * 100)));
+            Console.WriteLine("Total % of 4 is " + ((index4 / array.Length * 100) - (index3 / array.Length * 100)));
+            Console.ReadLine();
+        }
+    }
+}
+
+
