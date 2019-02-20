@@ -19,11 +19,11 @@ namespace lab_6_q3
                 {
                     Console.WriteLine("Region {0} , Company {1} sales:", i, j);
                     company[i,j] = Convert.ToInt32(Console.ReadLine());
-                    int index = company[i, j]; 
+                    int index = company[i, j];
                     total += index;
                     index++;
                     Average = total / 3;
-                    if (i == 1)
+                    if (index == 1)
                     {
                         int intex = company[i, j];
                         total = 0;
@@ -35,20 +35,12 @@ namespace lab_6_q3
                     }
 
                 }
-                if (i == 1)
-                {
-                    int intex = company[i, j];
-                    total = 0;
-                    total += intex;
-                    intex++;
-                    int Average1 = total / 5;
-                    Console.WriteLine("Average for region 1: " + Average1);
-                }
-            Console.WriteLine("Average for the whole company:" + Average);
-            Console.ReadLine();
+                Console.ReadLine();
 
 
 
+            }
         }
     }
 }
+
