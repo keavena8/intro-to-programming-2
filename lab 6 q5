@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_6_q5
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] playersTable = new int[5, 7];
+            string Match1 = "Match1";
+            string Match2 = "Match2";
+            string Match3 = "Match3";
+            string Match4 = "Match4";
+            string Match5 = "Match5";
+            string Table = "Player";
+            playersTable[1, 0] = Convert.ToInt32(Table);
+
+
+        }
+    }
+}
