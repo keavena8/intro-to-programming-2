@@ -10,15 +10,19 @@ namespace lab_6_q4
     {
         static void Main(string[] args)
         {
-            int[,] sumx = { { 2, 4, 6 }, { 6, 8, 2 },{ 2, 7, 4 } };
+            int[,] sumx = { { 2, 4, 6 }, { 6, 8, 2 }, { 2, 7, 4 } };
             int[,] sumy = { { 2, 4, 6 }, { 6, 8, 2 },{ 2, 7, 4 } };
-            int[,] totalz = new int [50,50];
-            for (int i = 0; i < 50; i++)
+            int[,] totalz = new int[50, 50];
+
+
+            for (int i = 0; i < sumx.GetLength(0); i++)
             {
-                for (int j = 0; j < 50; j++)
+
+                for (int j = 0; j < sumy.GetLength(1); j++)
                 {
-                    totalz[i,j] = sumx[i,j] + sumy[i,j];
-                    Console.WriteLine("Total : ", totalz[i, j]);
+                    totalz[i, j] = sumx[i, j] + sumy[i, j];
+                    Console.WriteLine("Total : " + totalz[i, j]);
+
                 }
                 Console.ReadLine();
             }
