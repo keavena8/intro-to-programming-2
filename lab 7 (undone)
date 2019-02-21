@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Q1 : " +Input());
+            Console.WriteLine("Q2 : " + FindLength());
+            Console.ReadLine();
+        }
+        static string Input()
+        {
+            string input;
+            input = " I am having a great time studying c# at Sligo IT ";
+            return input;
+        }
+        static int FindLength()
+        {
+            string input;
+            input = " I am having a great time studying c# at Sligo IT ";
+            return input.Length;
+        }
+    }   
+}
