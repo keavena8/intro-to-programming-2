@@ -19,6 +19,8 @@ namespace lab_7
             Console.WriteLine("Q4 : " + UpperString(input));
             Console.WriteLine("Q5 : " + LowerString(input));
             Console.WriteLine("Q6 : " + FindG(input));
+            Console.WriteLine("Q7 : " + FirstAndLast(input));
+            Console.WriteLine("Q8 : " + CountA(input));
             Console.ReadLine();
         }
         static string Input(string input)
@@ -44,15 +46,20 @@ namespace lab_7
         static int FindG(string input)
         {
             int index = input.IndexOf("g");
-            int newindex = input.IndexOf("g");
-            for (int i = 0;i >= index; i++)
-            {
-                return index;
-            }
-            return newindex;
-
-
+            return index;
         }
+        static string FirstAndLast(string input)
+        {
+            string Firstchar = input.Substring(0,1);
+            string Lastchar = input.Substring(input.Length - 1);
+            return Firstchar + Lastchar;
+        }
+        static int CountA(string input)
+        {
+            int total = input.Length - input.Replace("a", "").Length;
+            return total;
+        }
+
 
     }   
 }
