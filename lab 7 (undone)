@@ -9,22 +9,51 @@ namespace lab_7
     class Program
     {
         static void Main(string[] args)
+
         {
-            Console.WriteLine("Q1 : " +Input());
-            Console.WriteLine("Q2 : " + FindLength());
+            string input;
+            input = " I am having a great time studying c# at Sligo IT ";
+            Console.WriteLine("Q1 : " + Input(input));
+            Console.WriteLine("Q2 : " + FindLength(input));
+            Console.WriteLine("Q3 : " + TrimString(input));
+            Console.WriteLine("Q4 : " + UpperString(input));
+            Console.WriteLine("Q5 : " + LowerString(input));
+            Console.WriteLine("Q6 : " + FindG(input));
             Console.ReadLine();
         }
-        static string Input()
+        static string Input(string input)
         {
-            string input;
-            input = " I am having a great time studying c# at Sligo IT ";
             return input;
         }
-        static int FindLength()
+        static int FindLength(string input)
         {
-            string input;
-            input = " I am having a great time studying c# at Sligo IT ";
             return input.Length;
         }
+        static string TrimString(string input)
+        {
+            return input.Trim();
+        }
+        static string UpperString(string input)
+        {
+            return input.ToUpper();
+        }
+        static string LowerString(string input)
+        {
+            return input.ToLower();
+        }
+        static int FindG(string input)
+        {
+            int index = input.IndexOf("g");
+            int newindex = input.IndexOf("g");
+            for (int i = 0;i >= index; i++)
+            {
+                return index;
+            }
+            return newindex;
+
+
+        }
+
     }   
 }
+
