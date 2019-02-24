@@ -21,6 +21,9 @@ namespace lab_7
             Console.WriteLine("Q6 : " + FindG(input));
             Console.WriteLine("Q7 : " + FirstAndLast(input));
             Console.WriteLine("Q8 : " + CountA(input));
+            //Console.WriteLine("Q9 : " + CountAll(input));
+            Console.WriteLine("Q10 : " + IsTrue(input));
+            Console.WriteLine("Q11 : " + IsTrue2(input));
             Console.ReadLine();
         }
         static string Input(string input)
@@ -50,7 +53,7 @@ namespace lab_7
         }
         static string FirstAndLast(string input)
         {
-            string Firstchar = input.Substring(0,1);
+            string Firstchar = input.Substring(0, 1);
             string Lastchar = input.Substring(input.Length - 1);
             return Firstchar + Lastchar;
         }
@@ -59,8 +62,44 @@ namespace lab_7
             int total = input.Length - input.Replace("a", "").Length;
             return total;
         }
+// static string CountAll(string input)
+//{
+//string Solution;
+//var count = input.GroupBy(c => c).Select(g => new { g.Key, Count = g.Count() });
+// foreach (var result in count)
+//{
+//return Solution = Convert.ToString(result.Key, result.Count);
+//}
+//  }
+
+        static bool IsTrue(string input)
+        {
+            string Input;
+            Input = " I am having a great time studying c# at Sligo IT ";
+            if (Input == "nny")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        static bool IsTrue2 (string input)
+        {
+            string Input;
+            Input = " I am having a great time studying c# at Sligo IT ";
+            if (Input == "I Love Sligo")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
 
 
-    }   
+    }
 }
-
