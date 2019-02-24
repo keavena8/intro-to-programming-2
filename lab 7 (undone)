@@ -24,6 +24,7 @@ namespace lab_7
             //Console.WriteLine("Q9 : " + CountAll(input));
             Console.WriteLine("Q10 : " + IsTrue(input));
             Console.WriteLine("Q11 : " + IsTrue2(input));
+            Console.WriteLine("Q12 : " + SplitWords(input));
             Console.ReadLine();
         }
         static string Input(string input)
@@ -98,6 +99,13 @@ namespace lab_7
                 return false;
             }
 
+        }
+        static string SplitWords(string input)
+        {
+            string Input;
+            Input = " I am having a great time studying c# at Sligo IT ";
+            string[] arr = Input.Split(" ".ToCharArray(), StringSplitOptions.None);
+            return Convert.ToString(arr);
         }
 
 
