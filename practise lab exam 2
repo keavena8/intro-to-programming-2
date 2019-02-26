@@ -1,0 +1,101 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practise_Lab_question
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int mark;
+            int GradeBand;
+            int totalCount = 0;
+            int males;
+            int females;
+            int result;
+            string gender;
+            Console.Write("Please enter your gender (m/f): ");
+            gender = Console.ReadLine().ToLower(); ;
+            string[] AllGenders = { gender }; 
+            Console.Write("Please enter his/her score : ");
+            result = Convert.ToInt32(Console.ReadLine());
+            int[] Allresults = { result };
+            females = CountFemale(AllGenders);
+            males = CountMale(AllGenders);
+            Console.ReadLine();
+
+            mark = GetValidMark();
+            while ((mark = -999) && (totalCount < 100))
+            {
+                mark[totalCount] = mark
+                totalCount++;
+                mark = GetValidMark();
+            }
+            Console.WriteLine("Total Number of Marks: {0}", totalCount);
+                
+
+        }
+        //GetValidMark
+        static int GetValidMark()
+        {
+            int mark = 0;
+            string InputString = "";
+            bool isValid = false;
+            while (!isValid)
+            {
+                Console.Write("\nPlease enter mark: ");
+                InputString = Console.ReadLine();
+                isValid = int.TryParse(InputString, out mark);
+                if (mark < 0 || mark > 100 && mark != - 999)
+                {
+                    Console.Write("\nPlease enter a number between 0 and 100: ");
+                }
+                else
+                {
+                    Console.Write("\nPlease enter mark: ");
+                }
+
+            }return mark;
+            
+
+        }
+        //GetGradeBand
+        //try/catch
+        static int CountFemale(string [] AllGender)
+        {
+            int i = 0;
+            int femaleTotal = 0;
+            for (i = 0; i < AllGender.Length; i++) 
+            {
+                if (AllGender[i] == "f")
+                {
+                    femaleTotal += i;
+                    femaleTotal++;
+                }
+               
+            }
+            return femaleTotal;
+
+
+        }
+        static int CountMale(string [] AllGender)
+        {
+            int i = 0;
+            int MaleTotal = 0;
+            for (i = 0; i < AllGender.Length; i ++)
+            {
+                if (AllGender[i] == "m")
+                {
+                    MaleTotal += i;
+                    MaleTotal++;
+                }
+                
+
+            }
+            return MaleTotal;
+        }
+    }
+}
