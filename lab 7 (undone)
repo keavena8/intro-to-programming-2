@@ -25,6 +25,9 @@ namespace lab_7
             Console.WriteLine("Q10 : " + IsTrue(input));
             Console.WriteLine("Q11 : " + IsTrue2(input));
             Console.WriteLine("Q12 : " + SplitWords(input));
+            Console.WriteLine("Q14 : " + CountVowels(input));
+            Console.WriteLine("Q15 : " + CountCons(input));
+            Console.WriteLine("Q16 : " + Replace(input));
             Console.ReadLine();
         }
         static string Input(string input)
@@ -63,15 +66,15 @@ namespace lab_7
             int total = input.Length - input.Replace("a", "").Length;
             return total;
         }
-// static string CountAll(string input)
-//{
-//string Solution;
-//var count = input.GroupBy(c => c).Select(g => new { g.Key, Count = g.Count() });
-// foreach (var result in count)
-//{
-//return Solution = Convert.ToString(result.Key, result.Count);
-//}
-//  }
+        // static string CountAll(string input)
+        //{
+        //string Solution;
+        //var count = input.GroupBy(c => c).Select(g => new { g.Key, Count = g.Count() });
+        // foreach (var result in count)
+        //{
+        //return Solution = Convert.ToString(result.Key, result.Count);
+        //}
+        //  }
 
         static bool IsTrue(string input)
         {
@@ -86,7 +89,7 @@ namespace lab_7
                 return false;
             }
         }
-        static bool IsTrue2 (string input)
+        static bool IsTrue2(string input)
         {
             string Input;
             Input = " I am having a great time studying c# at Sligo IT ";
@@ -105,8 +108,41 @@ namespace lab_7
             string Input;
             Input = " I am having a great time studying c# at Sligo IT ";
             string[] arr = Input.Split(" ".ToCharArray(), StringSplitOptions.None);
-            return Convert.ToString(arr);
+            string FinalArray = Convert.ToString(arr);
+            return FinalArray;
         }
+        static int CountVowels( string input)
+        {
+            int total = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == 'a' || input[i] == 'e' || input[i] == 'i' || input[i] == 'o' || input[i] == 'u')
+                {
+                    total++;
+                }
+            }
+            return total;
+        }
+        static int CountCons(string input)
+        {
+            int total = 0;
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (input[i] == 'a' || input[i] == 'e' || input[i] == 'i' || input[i] == 'o' || input[i] == 'u')
+                {
+                    total++;
+                }
+            }
+            return input.Length - total;
+        }
+        static string Replace(string input)
+        {
+            input = input.Replace("a", "b");
+            input = input.Replace("t", "s");
+            return input;
+        }
+
+
 
 
     }
