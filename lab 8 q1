@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace lab_8_q1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("New file\n");
+            WriteNewFile();
+            PrintFirstLine();
+            PrintThirdLine();
+            PrintAll();
+            Console.ReadLine();
+        }
+        static void WriteNewFile()
+        {
+            string newFile = @"d:\lab8q1.txt";
+            FileStream fs = new FileStream(newFile, FileMode.Open, FileAccess.Write);
+            StreamWriter sws = new StreamWriter(fs);
+            sws.WriteLine(@"It was the beating of my heart,
+How could I resist the chance to fall for you?
+The beating of my heart,
+How could I not feel the way I do for you?
+Haunting for you now, (In my head, in my head)
+Haunting for you now");
+
+            sws.Close();
+        }
+        static void PrintFirstLine()
+        {
+            string LineIn;
+            FileStream fs = new FileStream(@"d:\lab8q1.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            LineIn = sr.ReadLine();
+            Console.WriteLine(LineIn);
+            sr.Close();
+        }
+        static void PrintThirdLine()
+        {
+            string[] AllLine;
+            string ThirdLineIn;
+            FileStream fs = new FileStream(@"d:\lab8q1.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+
+            AllLine = File.ReadAllLines(@"d:\lab8q1.txt");
+
+            ThirdLineIn = AllLine[2];
+
+            Console.WriteLine(ThirdLineIn);
+
+            sr.Close();
+        }
+        static void PrintAll()
+        {
+            string LineIn;
+            FileStream fs = new FileStream(@"d:\lab8q1.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            LineIn = sr.ReadLine();
+            while (LineIn != null)
+            {
+                Console.WriteLine(LineIn);
+                LineIn = sr.ReadLine();
+            }
+            sr.Close();
+        }
+
+    }
+}
