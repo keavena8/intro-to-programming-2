@@ -17,11 +17,16 @@ namespace lab8q2
             string LineIn;
             string[] splitup = new string[2];
             int[] arrnumbers = new int[10];
+            int Range1 = 0;
+            int Range2 = 0;
+            int Range3 = 0;
+            int Range4 = 0;
+            int Range5 = 0;
 
             string myfile = @"h:\temp.txt";
             FileStream fs = new FileStream(myfile, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
-            Console.WriteLine("{0,-15}{1,-15}" ,"Date", "Temperature");
+            Console.WriteLine("{0,-15}{1,-15}", "Date", "Temperature");
 
             LineIn = sr.ReadLine();
             while (LineIn != null)
@@ -29,40 +34,52 @@ namespace lab8q2
                 count++;
                 splitup = LineIn.Split(',');
                 Console.WriteLine("{0,-15} {1,-15}", splitup[0], splitup[1]);
-                
-                arrnumbers[count-1] = Convert.ToInt32(splitup[1]);
-                total += arrnumbers[count-1];
+
+                arrnumbers[count - 1] = Convert.ToInt32(splitup[1]);
+                total += arrnumbers[count - 1];
+
+
+                if (arrnumbers[count - 1] < 0)
+                {
+                    Range1++;
+                }
+                else if (arrnumbers[count - 1] >= 0 && arrnumbers[count - 1] <= 9)
+                {
+                    Range2++;
+                }
+                else if (arrnumbers[count - 1] >= 10 && arrnumbers[count - 1] <= 19)
+                {
+                    Range3++;
+                }
+                else if (arrnumbers[count - 1] >= 20 && arrnumbers[count - 1] <= 29)
+                {
+                    Range4++;
+                }
+                else
+                {
+                    Range5++;
+                }
 
                 LineIn = sr.ReadLine();
             }
-            
+
             Average = total / count;
 
             Console.WriteLine("{0,-15}{1,-15}", "Average", Average);
+
+            Console.WriteLine("\nRange Report");
+            Console.WriteLine("{0,-15}{1,-15}", "Range", "Number Of Days");
+
+
+            Console.WriteLine("{0,-15}{1,-15}", @"<0", Range1);
+            Console.WriteLine("{0,-15}{1,-15}", @"0-9", Range2);
+            Console.WriteLine("{0,-15}{1,-15}", @"10-19", Range3);
+            Console.WriteLine("{0,-15}{1,-15}", @"20-29", Range4);
+            Console.WriteLine("{0,-15}{1,-15}", @">30", Range5);
+
             Console.ReadLine();
             sr.Close();
         }
-        static void PrintReport()
-        {
-            int count;
-            string LineIn;
-            string myfile = @"h:\temp.txt";
-            string[] splitup = new string[2];
-            int[] arrnumbers = new int[10];
 
-            FileStream fs = new FileStream(myfile, FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(fs);
-            Console.WriteLine("Range Report");
-            Console.WriteLine("{0,-15}{1,-15}", "Range", "Temperature");
-
-            LineIn = sr.ReadLine();
-            while (LineIn != null)
-            {
-                splitup = LineIn.Split(',');
-                arrnumbers[count - 1] = Convert.ToInt32(splitup[1]);
-
-
-            }
     }
-
 }
