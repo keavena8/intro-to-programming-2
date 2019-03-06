@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace lab8q2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int Average = 0;
+            int total = 0;
+            int count = 0;
+            string LineIn;
+            string[] splitup = new string[2];
+            int[] arrnumbers = new int[10];
+
+            string myfile = @"h:\temp.txt";
+            FileStream fs = new FileStream(myfile, FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            Console.WriteLine("{0,-15}{1,-15}" ,"Date", "Temperature");
+
+            LineIn = sr.ReadLine();
+            while (LineIn != null)
+            {
+                count++;
+                splitup = LineIn.Split(',');
+                Console.WriteLine("{0,-15} {1,-15}", splitup[0], splitup[1]);
+                
+                arrnumbers[count-1] = Convert.ToInt32(splitup[1]);
+                total += arrnumbers[count-1];
+
+                LineIn = sr.ReadLine();
+            }
+            
+            Average = total / count;
+
+            Console.WriteLine("{0,-15}{1,-15}", "Average", Average);
+            Console.ReadLine();
+            sr.Close();
+        }
+    }
+}
