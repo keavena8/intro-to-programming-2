@@ -1,0 +1,22 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace lab_8_q4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello");
+            FileStream fs = new FileStream(@"d:\paidup.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter sws = new StreamWriter(fs);
+            sws.Write("Please enter paid memebers name: ");
+            sws.Close();
+            Console.ReadLine();
+        }
+    }
+}
