@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace lab_8_q4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 0;
+            string[] people = new string[1000];
+            do
+            {
+
+                Console.Write("Please enter paid memebers name: ", i + 1);
+
+                people[i] = Console.ReadLine().ToLower();
+
+                FileStream fs = new FileStream(@"d:\paidup.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sws = new StreamWriter(fs);
+                sws.WriteLine(people[i]);
+
+                sws.Close();
+                
+   
+
+            }
+            while (people[i - 1] != "-999" && i < 1000);
+            
+           
+
+            ReadAllFile();
+
+            Console.ReadLine();
+        }
+
+     
+
+        static void ReadAllFile()
+        {
+            string LineIn;
+            FileStream fs = new FileStream(@"d:\paidup.txt", FileMode.Open, FileAccess.Read);
+            StreamReader srs = new StreamReader(fs);
+            LineIn = srs.ReadLine();
+            while (LineIn != null)
+            {
+                Console.WriteLine(LineIn);
+                LineIn = srs.ReadLine();
+            }
+            srs.Close();
+        }
+
+    }
+}
+
