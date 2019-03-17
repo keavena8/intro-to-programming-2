@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GameMenu
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int menuChoice;
+            Console.WriteLine("{0,-10}", "      Package");
+            Console.WriteLine("{0,-6}{1,-10}", "P1","Min");
+            Console.WriteLine("{0,-6}{1,-15}", "P2","Compact" );
+            Console.WriteLine("{0,-6}{1,-15}", "P3", "Luxury");
+            Console.WriteLine("{0,-6}{1,-15}", "P4", "Exit");
+
+            Console.Write("\nEnter Package : ");
+            menuChoice = int.Parse(Console.ReadLine());
+            Console.Write("Enter days : ");
+            int days = int.Parse(Console.ReadLine());
+            Console.Write("Enter Kilometers : ");
+            int kilometers = int.Parse(Console.ReadLine());
+
+            while (menuChoice != 4)
+            {
+
+                switch (menuChoice)
+                {
+                    case 1:
+                        Console.WriteLine("");
+
+                        break;
+                    case 2:
+                        Console.WriteLine("");
+
+                        break;
+                    case 3:
+                        Console.WriteLine("");
+                        break;
+                    case 4:
+                        Console.WriteLine("GoodBye");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+
+
+
+                }
+                Console.WriteLine("{0,-10}", "      Package");
+                Console.WriteLine("{0,-6}{1,-10}", "P1", "Min");
+                Console.WriteLine("{0,-6}{1,-15}", "P2", "Compact");
+                Console.WriteLine("{0,-6}{1,-15}", "P3", "Luxury");
+                Console.WriteLine("{0,-6}{1,-15}", "P4", "Exit");
+
+                Console.Write("\nEnter Package : ");
+                int menuChoice = int.Parse(Console.ReadLine());
+
+            } 
+        }
+    }
+}
