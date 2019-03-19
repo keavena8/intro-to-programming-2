@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace lab_week9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Information();
+        }
+        static void Information()
+        {
+            string LineIn;
+            string[] splitup = new string[5];
+            string vesselName;
+            int vesselType;
+            int Tonnage;
+            int Crew;
+            int Location;
+            string Place;
+
+            FileStream fs = new FileStream(@"C:\Users\S00193621\Downloads\FrenchMF", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            LineIn = sr.ReadLine();
+            while (LineIn != null)
+            {
+                splitup = LineIn.Split(',');
+                vesselName = splitup[0];
+                vesselType = int.Parse(splitup[1]);
+                Tonnage = int.Parse(splitup[2]);
+                Crew = int.Parse(splitup[3]);
+                Location = int.Parse(splitup[4]);
+                LineIn = sr.ReadLine();
+
+
+                switch (Location)
+                {
+                    case 1:
+                        Place = "The Pacific";
+                        break;
+                    case 2:
+                        Place = "The Atlanic";
+                        break;
+                    case 3:
+                        Place = "The Mediterranean";
+                        break;
+                    case 4:
+                        Place = "The Indian Ocean";
+                        break;
+                    case 5:
+                        Place = " The Other Sea";
+                        break;
+                }
+                Console.WriteLine(Place);
+                Console.ReadLine();
+
+            }
+
+
+            Console.ReadLine();
+            sr.Close();
+
+        }
+    }
+}
