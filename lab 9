@@ -23,6 +23,7 @@ namespace lab_week9
             int Crew;
             int Location;
             string Place;
+            string Type;
 
             FileStream fs = new FileStream(@"C:\Users\S00193621\Downloads\FrenchMF", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
@@ -35,9 +36,32 @@ namespace lab_week9
                 Tonnage = int.Parse(splitup[2]);
                 Crew = int.Parse(splitup[3]);
                 Location = int.Parse(splitup[4]);
-                LineIn = sr.ReadLine();
+             
 
-
+                switch (vesselType)
+                {
+                    case 1:
+                        Type = "Aircraft carrier";
+                        break;
+                    case 2:
+                        Type = "Cruiser/Battleship";
+                        break;
+                    case 3:
+                        Type = "Destroyer";
+                        break;
+                    case 4:
+                        Type = "Frigate";
+                        break;
+                    case 5:
+                        Type = "Nuclear Submarine";
+                        break;
+                    case 6:
+                        Type = "Minelayer/Sweeper";
+                        break;
+                    default:
+                        Type = "Invalid number";
+                        break;
+                }
                 switch (Location)
                 {
                     case 1:
@@ -53,12 +77,20 @@ namespace lab_week9
                         Place = "The Indian Ocean";
                         break;
                     case 5:
-                        Place = " The Other Sea";
+                        Place = " The Other Seas";
                         break;
+                    default:
+                        Place = "Invalid number";
+                            break;
                 }
+                switch (Crew)
+                {
+                    case 1
+                }
+                Console.WriteLine(Type);
                 Console.WriteLine(Place);
                 Console.ReadLine();
-
+                LineIn = sr.ReadLine();
             }
 
 
