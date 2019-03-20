@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,68 @@ namespace lab_week9
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            Information();
+
+            Console.WriteLine(" Menu");
+            Console.WriteLine(@"1. Vessel Report ");
+            Console.WriteLine(@"2. Location Analysis Report");
+            Console.WriteLine(@"3. Search For a Vessel");
+            Console.WriteLine(@"4. Exit");
+            Console.Write("\nEnter Choice : ");
+
+            int menuChoice = int.Parse(Console.ReadLine());
+
+            while (menuChoice != 4)
+            {
+
+                switch (menuChoice)
+                {
+                    case 1:
+                        Console.WriteLine("French Naval Vessel Inventory Report");
+                        SortInformation();
+                        break;
+                    case 2:
+                        Console.WriteLine("{0,-20}{1,-20}", "Location", "Vessel Report");
+                        LocationReport();
+                        break;
+                    case 3:
+                        Console.Write("Enter Vessel Name : ");
+                        SearchReport();
+                        break;
+                    case 4:
+                        Console.WriteLine("GoodBye");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+
+
+
+                }// end switch
+                Console.WriteLine(" Menu");
+                Console.WriteLine(@"1. Vessel Report ");
+                Console.WriteLine(@"2. Location Analysis Report");
+                Console.WriteLine(@"3. Search For a Vessel");
+                Console.WriteLine(@"4.  Exit");
+                Console.Write("\nEnter Choice : ");
+
+                menuChoice = int.Parse(Console.ReadLine());
+
+            } // end loop
         }
-        static void Information()
+
+
+
+
+
+
+
+
+        static void SortInformation()
         {
+
             string LineIn;
             string[] splitup = new string[5];
             string vesselName;
@@ -24,19 +81,25 @@ namespace lab_week9
             int Location;
             string Place;
             string Type;
+            int TotalCost = 0;
+            int TotalCrew = 0;
+            int TotalTonnage = 0;
 
-            FileStream fs = new FileStream(@"C:\Users\S00193621\Downloads\FrenchMF", FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(@"H:\FrenchMF.TXT", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             LineIn = sr.ReadLine();
             while (LineIn != null)
             {
+
+                int Cost;
                 splitup = LineIn.Split(',');
                 vesselName = splitup[0];
                 vesselType = int.Parse(splitup[1]);
                 Tonnage = int.Parse(splitup[2]);
                 Crew = int.Parse(splitup[3]);
                 Location = int.Parse(splitup[4]);
-             
+
+
 
                 switch (vesselType)
                 {
@@ -68,7 +131,7 @@ namespace lab_week9
                         Place = "The Pacific";
                         break;
                     case 2:
-                        Place = "The Atlanic";
+                        Place = "The Atlantic";
                         break;
                     case 3:
                         Place = "The Mediterranean";
@@ -81,22 +144,134 @@ namespace lab_week9
                         break;
                     default:
                         Place = "Invalid number";
-                            break;
+                        break;
                 }
-                switch (Crew)
+                switch (vesselType)
                 {
-                    case 1
+                    case 1:
+                        Cost = 2610 * Crew;
+                        break;
+                    case 2:
+                        Cost = 2350 * Crew;
+                        break;
+                    case 3:
+                        Cost = 2050 * Crew;
+                        break;
+                    case 4:
+                        Cost = 999 * Crew;
+                        break;
+                    case 5:
+                        Cost = 2550 * Crew;
+                        break;
+                    case 6:
+                        Cost = 2510 * Crew;
+                        break;
+                    default:
+                        Cost = 0;
+                        break;
+
                 }
-                Console.WriteLine(Type);
-                Console.WriteLine(Place);
-                Console.ReadLine();
+
+                TotalCost += Cost;
+                TotalCost++;
+                TotalCrew += Crew;
+                TotalCrew++;
+                TotalTonnage += Tonnage;
+                TotalTonnage++;
+                Console.WriteLine("{0,-15}{1,-20}{2,-15}{3,-15}{4,-15}{5,-15}", "Location", "Function", "Vessel Name", "Tonnage", "Crew", "Monthly Cost");
+                Console.WriteLine("{0,-15}{1,-20}{2,-15}{3,-15}{4,-15}{5,-15}", Place, Type, vesselName, Tonnage, Crew, Cost);
                 LineIn = sr.ReadLine();
             }
-
-
+            Console.WriteLine("{0,-50}{1,-15}{2,-15}{3,-15}", "GrandTotals", TotalTonnage, TotalCrew, TotalCost);
             Console.ReadLine();
             sr.Close();
 
         }
+        static void LocationReport()
+        {
+            string LineIn;
+            string[] splitup = new string[5];
+            int Location;
+            string Place;
+            int totalLocation = 0;
+            int totalPacific = 0;
+            int totalAtlantic = 0;
+            int totalMed = 0;
+            int totalIndian = 0;
+            int totalOther = 0;
+
+
+            FileStream fs = new FileStream(@"H:\FrenchMF.TXT", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            LineIn = sr.ReadLine();
+            while (LineIn != null)
+            {
+                splitup = LineIn.Split(',');
+                Location = int.Parse(splitup[4]);
+
+                switch (Location)
+                {
+                    case 1:
+                        Place = "The Pacific";
+                        break;
+                    case 2:
+                        Place = "The Atlantic";
+                        break;
+                    case 3:
+                        Place = "The Mediterranean";
+                        break;
+                    case 4:
+                        Place = "The Indian Ocean";
+                        break;
+                    case 5:
+                        Place = " The Other Seas";
+                        break;
+                    default:
+                        Place = "Invalid number";
+                        break;
+                }
+                if (Place == "The Atlantic")
+                {
+                    totalAtlantic++;
+                }
+                else if (Place == "The Pacific")
+                {
+                    totalPacific++;
+                }
+                else if (Place == "The Mediterranean")
+                {
+                    totalMed++;
+                }
+                else if (Place == "The Indian Ocean")
+                {
+                    totalIndian++;
+                }
+                else
+                {
+                    totalOther++;
+                }
+
+                LineIn = sr.ReadLine();
+            }
+            totalLocation = totalAtlantic + totalIndian + totalMed + totalOther + totalPacific;
+            Console.WriteLine("{0,-20}{1,-20}", "The Pacific", totalPacific);
+            Console.WriteLine("{0,-20}{1,-20}", "The Atlantic", totalAtlantic);
+            Console.WriteLine("{0,-20}{1,-20}", "The Mediterranean", totalMed);
+            Console.WriteLine("{0,-20}{1,-20}", "The Indian Ocean", totalIndian);
+            Console.WriteLine("{0,-20}{1,-20}", "The Other Seas", totalOther);
+
+
+            Console.WriteLine("{0,-20}{1,-20}", "Totals", totalLocation);
+            Console.ReadLine();
+            sr.Close();
+        }
+        static void SearchReport()
+        {
+
+        }
     }
 }
+
+
+
+
