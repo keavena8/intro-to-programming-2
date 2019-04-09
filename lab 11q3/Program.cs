@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,11 @@ namespace ConsoleApplication7
         static void Main(string[] args)
         {
             computer comp1 = new computer("Dell", "Usa");
-            Console.WriteLine(comp1.Format());
+            laptop lap1 = new laptop("Dell", "Usa", "Inspirion", "Red");
+            desktop desk1 = new desktop("Dell", "USA", "FOLL", "Blue");
+            Console.WriteLine(comp1.ToString());
+            Console.WriteLine(lap1.ToString());
+            Console.WriteLine(desk1.ToString());
             Console.ReadLine();
         }
     }
