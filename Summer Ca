@@ -10,37 +10,80 @@ namespace GameMenu
     {
         static void Main(string[] args)
         {
-            int menuChoice;
+            int days;
+            int kilometers;
+            double cost;
+            double miles;
+            string menuChoice;
             Console.WriteLine("{0,-10}", "      Package");
-            Console.WriteLine("{0,-6}{1,-10}", "P1","Min");
-            Console.WriteLine("{0,-6}{1,-15}", "P2","Compact" );
+            Console.WriteLine("{0,-6}{1,-10}", "P1", "Min");
+            Console.WriteLine("{0,-6}{1,-15}", "P2", "Compact");
             Console.WriteLine("{0,-6}{1,-15}", "P3", "Luxury");
             Console.WriteLine("{0,-6}{1,-15}", "P4", "Exit");
 
             Console.Write("\nEnter Package : ");
-            menuChoice = int.Parse(Console.ReadLine());
-            Console.Write("Enter days : ");
-            int days = int.Parse(Console.ReadLine());
-            Console.Write("Enter Kilometers : ");
-            int kilometers = int.Parse(Console.ReadLine());
+            menuChoice = Console.ReadLine().ToUpper();
 
-            while (menuChoice != 4)
+            while (menuChoice != "P4")
             {
 
                 switch (menuChoice)
                 {
-                    case 1:
-                        Console.WriteLine("");
+                    case "P1":
+                        Console.Write("Enter days : ");
+                        days = int.Parse(Console.ReadLine());
+                        Console.Write("Enter Kilometers : ");
+                        kilometers = int.Parse(Console.ReadLine());
+                        miles = kilometers / 1.609;
+                        if (kilometers < 300)
+                        {
+                            cost = days * 12;
+                        }
+                        else
+                        {
+                            cost = days * 12 + ((kilometers - 300) * 0.80);
+                        }
+                        Console.WriteLine("\n{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}", "Package", "Days", "Kilometers", "Miles", "Cost");
+                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}", "P1", days, kilometers, Math.Round(miles, 2), Math.Round(cost,2));
+                        
+                        break;
 
+                        
+                    case "P2":
+                        Console.Write("Enter days : ");
+                        days = int.Parse(Console.ReadLine());
+                        Console.Write("Enter Kilometers : ");
+                        kilometers = int.Parse(Console.ReadLine());
+                        miles = kilometers / 1.609;
+                        if (kilometers < 250)
+                        {
+                            cost = days * 9;
+                        }
+                        else
+                        {
+                            cost = days * 9 + ((kilometers - 250) * 1.10);
+                        }
+                        Console.WriteLine("\n{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}", "Package", "Days", "Kilometers", "Miles", "Cost");
+                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}", "P2", days, kilometers, Math.Round(miles, 2), Math.Round(cost, 2));
                         break;
-                    case 2:
-                        Console.WriteLine("");
-
+                    case "P3":
+                        Console.Write("Enter days : ");
+                        days = int.Parse(Console.ReadLine());
+                        Console.Write("Enter Kilometers : ");
+                        kilometers = int.Parse(Console.ReadLine());
+                        miles = kilometers / 1.609;
+                        if (kilometers < 500)
+                        {
+                            cost = days * 20;
+                        }
+                        else
+                        {
+                            cost = days * 20 + ((kilometers - 500) * 1.50);
+                        }
+                        Console.WriteLine("\n{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}", "Package", "Days", "Kilometers", "Miles", "Cost");
+                        Console.WriteLine("{0,-10}{1,-10}{2,-10}{3,-10}{4,-10}", "P3", days, kilometers, Math.Round(miles, 2), Math.Round(cost, 2));
                         break;
-                    case 3:
-                        Console.WriteLine("");
-                        break;
-                    case 4:
+                    case "P4":
                         Console.WriteLine("GoodBye");
                         break;
                     default:
@@ -50,16 +93,18 @@ namespace GameMenu
 
 
                 }
-                Console.WriteLine("{0,-10}", "      Package");
+
+                Console.WriteLine("\n{0,-10}", "      Package");
                 Console.WriteLine("{0,-6}{1,-10}", "P1", "Min");
                 Console.WriteLine("{0,-6}{1,-15}", "P2", "Compact");
                 Console.WriteLine("{0,-6}{1,-15}", "P3", "Luxury");
                 Console.WriteLine("{0,-6}{1,-15}", "P4", "Exit");
 
                 Console.Write("\nEnter Package : ");
-                int menuChoice = int.Parse(Console.ReadLine());
-
-            } 
+                menuChoice = Console.ReadLine().ToUpper();
+            }
+            
         }
+
     }
 }
